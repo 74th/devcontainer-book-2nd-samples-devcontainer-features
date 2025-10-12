@@ -1,0 +1,10 @@
+{
+    "test": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "flyway": {
+                "version": "10.0.0"
+            }
+        }
+    }
+}

@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# optionのバージョンを受け取る
+FLYWAY_VERSION="${VERSION:-"8.1.0"}"
+
 echo "Activating feature 'flyway'"
 
 if [ -d "/usr/local/lib/flyway" ]; then
@@ -10,10 +13,10 @@ fi
 
 if ! command -v curl >/dev/null; then
   echo "curl is not installed, installing it now"
+  # ここではDebian系のみをサポート
   apt-get update && apt-get install -y curl
 fi
 
-FLYWAY_VERSION=8.1.0
 
 # /usr/local/lib/flywayにインストール
 mkdir -p /usr/local/lib/flyway
