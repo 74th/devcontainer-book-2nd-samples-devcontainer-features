@@ -13,9 +13,6 @@
       ]
     }
   },
-  "containerEnv": {
-    "PATH": "/flyway:${PATH}"
-  },
   "dependsOn": {
     "ghcr.io/devcontainers/features/java:1": {}
   },
