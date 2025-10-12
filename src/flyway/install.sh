@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "Activating feature 'flyway-8.1.0'"
+echo "Activating feature 'flyway'"
 
 if [ -d "/flyway" ]; then
   echo "Flyway is already installed"

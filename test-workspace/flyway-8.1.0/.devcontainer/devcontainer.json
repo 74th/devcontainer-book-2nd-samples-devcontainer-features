@@ -4,6 +4,6 @@
   "workspaceFolder": "/workspace",
   "service": "dev",
   "features": {
-    "ghcr.io/74th/test-devcontainer-feature-2/flyway-8.1.0:latest": {}
+    "ghcr.io/74th/test-devcontainer-feature-2/flyway:latest": {}
   }
 }

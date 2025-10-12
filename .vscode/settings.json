@@ -1,0 +1,8 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["src/**/devcontainer-feature.json"],
+            "url": "https://github.com/devcontainers/spec/blob/main/schemas/devContainerFeature.schema.json"
+        }
+    ]
+}
