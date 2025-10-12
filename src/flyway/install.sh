@@ -6,11 +6,13 @@ FLYWAY_VERSION="${VERSION:-"8.1.0"}"
 
 echo "Activating feature 'flyway'"
 
+# 重複インストールの判定
 if [ -d "/usr/local/lib/flyway" ]; then
   echo "Flyway is already installed"
   exit 0
 fi
 
+# インストール作業に必要なパッケージをインストール
 if ! command -v curl >/dev/null; then
   echo "curl is not installed, installing it now"
   # ここではDebian系のみをサポート
