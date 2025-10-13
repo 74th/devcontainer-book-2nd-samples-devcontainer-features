@@ -5,7 +5,7 @@
         },
         "features": {
             "ghcr.io/devcontainers/features/node:1": {},
-            "embedding_bedrock_token_for_claudecode_vscode": {
+            "embedding-bedrock-token-for-claudecode-vscode": {
                 "bedrock_token_path": "/etc/bedrock_token"
             }
         }
@@ -14,7 +14,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "ghcr.io/devcontainers/features/node:1": {},
-            "embedding_bedrock_token_for_claudecode_vscode": {}
+            "embedding-bedrock-token-for-claudecode-vscode": {}
         },
         "remoteEnv": {
             "AWS_BEARER_TOKEN_BEDROCK": "TEST_TOKEN"

@@ -13,5 +13,5 @@
   "dependsOn": {
     "ghcr.io/devcontainers/features/node:1": {}
   },
-  "postStartCommand": "/usr/local/lib/embedding_bedrock_token_for_claudecode_vscode/postStartCommand.sh"
+  "postStartCommand": "/opt/embedding-bedrock-token-for-claudecode-vscode/postStartCommand.sh"
 }
