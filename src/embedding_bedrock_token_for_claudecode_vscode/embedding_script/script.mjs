@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { homedir } from "node:os";
 import { parse, modify, applyEdits } from "jsonc-parser";
 import path from "node:path";
+import { mkdirSync } from "node:fs";
 
 const args = process.argv.slice(2);
 const secretPath = args[0]; // 引数で指定された場合
@@ -55,6 +56,9 @@ const edits = modify(
   envVars,
   { formattingOptions: { insertSpaces: true, tabSize: 2, eol: "\n" } }
 );
+
+// 親フォルダが存在しなければ作成
+mkdirSync(path.dirname(settingsPath), { recursive: true });
 
 const newText = applyEdits(text, edits);
 writeFileSync(settingsPath, newText, "utf8");
