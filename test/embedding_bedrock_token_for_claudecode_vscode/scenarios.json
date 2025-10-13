@@ -19,7 +19,7 @@
             }
         },
         "remoteEnv": {
-            "BEDROCK_TOKEN": "TEST_TOKEN"
+            "AWS_BEARER_TOKEN_BEDROCK": "TEST_TOKEN"
         }
     }
 }
