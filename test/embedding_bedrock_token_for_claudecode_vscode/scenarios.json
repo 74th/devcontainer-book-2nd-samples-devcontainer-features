@@ -9,5 +9,17 @@
                 "bedrock_token_path": "/etc/bedrock_token"
             }
         }
+    },
+    "embedding_from_env": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ghcr.io/devcontainers/features/node:1": {},
+            "embedding_bedrock_token_for_claudecode_vscode": {
+                "bedrock_token_path": "/etc/bedrock_token"
+            }
+        },
+        "remoteEnv": {
+            "BEDROCK_TOKEN": "TEST_TOKEN"
+        }
     }
 }
