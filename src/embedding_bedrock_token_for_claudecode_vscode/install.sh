@@ -13,12 +13,6 @@ if [ -d "${INSTALLED_DIR}" ]; then
   exit 0
 fi
 
-# nodejsの存在チェック
-if ! command -v node >/dev/null; then
-  echo "node is not installed"
-  apt update && apt install -y nodejs npm
-fi
-
 # スクリプトのインストール
 mkdir -p ${INSTALLED_DIR}
 cp -rf ${FEATURE_DIR}/embedding_script ${INSTALLED_DIR}/

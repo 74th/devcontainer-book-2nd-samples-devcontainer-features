@@ -10,9 +10,8 @@
       "description": "The path to the bedrock token"
     }
   },
-  "dependsOn": {},
-  "postStartCommand": "/usr/local/lib/embedding_bedrock_token_for_claudecode_vscode/postStartCommand.sh",
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/node:1"
-  ]
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postStartCommand": "/usr/local/lib/embedding_bedrock_token_for_claudecode_vscode/postStartCommand.sh"
 }
