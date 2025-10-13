@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -xe
 
 # optionのバージョンを受け取る
 FLYWAY_VERSION="${VERSION:-"8.1.0"}"

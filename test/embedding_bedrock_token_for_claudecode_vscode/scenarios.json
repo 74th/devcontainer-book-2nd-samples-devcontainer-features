@@ -1,0 +1,13 @@
+{
+    "embedding_from_token_path": {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "ghcr.io/devcontainers/features/node:1": {},
+            "embedding_bedrock_token_for_claudecode_vscode": {
+                "bedrock_token_path": "/etc/bedrock_token"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "embeding bedrock token for claudecode vscode",
+  "id": "embeding_bedrock_token_for_claudecode_vscode",
+  "version": "0.0.1",
+  "description": "embeding bedrock token in vscode for claude code",
+  "options": {
+    "bedrock_token_path": {
+      "type": "string",
+      "default": "",
+      "description": "The path to the bedrock token"
+    }
+  },
+  "dependsOn": {},
+  "postStartCommand": "/usr/local/lib/embedding_bedrock_token_for_claudecode_vscode/postStartCommand.sh",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/node:1"
+  ]
+}
