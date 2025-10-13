@@ -16,7 +16,7 @@ fi
 # nodejsの存在チェック
 if ! command -v node >/dev/null; then
   echo "node is not installed"
-  exit 1
+  apt update && apt install -y nodejs npm
 fi
 
 # スクリプトのインストール
