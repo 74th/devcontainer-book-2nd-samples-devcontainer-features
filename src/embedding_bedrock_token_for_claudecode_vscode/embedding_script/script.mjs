@@ -18,7 +18,7 @@ let token = null;
 if (secretPath) {
   if (!existsSync(secretPath)) {
     console.error(`❌ Secret file not found: ${secretPath}`);
-    process.exit(1);
+    process.exit(0);
   }
   token = readFileSync(secretPath, "utf8").trim();
   console.log(`🔑 Token loaded from file: ${secretPath}`);
@@ -27,7 +27,7 @@ if (secretPath) {
   console.log(`🔑 Token loaded from environment variable AWS_BEARER_TOKEN_BEDROCK`);
 } else {
   console.error("❌ No token source provided (neither file path nor AWS_BEARER_TOKEN_BEDROCK env var).");
-  process.exit(1);
+  process.exit(0);
 }
 
 // === 2. AWS_REGION を取得 ===
