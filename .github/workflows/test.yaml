@@ -14,6 +14,7 @@ jobs:
       matrix:
         features:
           - flyway
+          - embedding_bedrock_token_for_claudecode_vscode
         baseImage:
           - debian:latest
           - ubuntu:latest
