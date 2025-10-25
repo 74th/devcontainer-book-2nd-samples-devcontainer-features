@@ -2,10 +2,10 @@
 set -e
 
 FEATURE_DIR=$(dirname $0)
-INSTALLED_DIR="/opt/embedding-bedrock-token-for-claudecode-vscode"
+INSTALLED_DIR="/opt/embedding_bedrock_token_for_claudecode_vscode"
 BEDROCK_TOKEN_PATH="${BEDROCK_TOKEN_PATH}"
 
-echo "Activating feature 'embedding-bedrock-token-for-claudecode-vscode'"
+echo "Activating feature 'embedding_bedrock_token_for_claudecode_vscode'"
 
 # 重複インストールの判定
 if [ -d "${INSTALLED_DIR}" ]; then
