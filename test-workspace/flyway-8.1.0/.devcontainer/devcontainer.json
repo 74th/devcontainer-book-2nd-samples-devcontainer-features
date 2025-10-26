@@ -5,6 +5,5 @@
   "service": "dev",
   "features": {
     "ghcr.io/74th/devcontainer-book-2nd-samples-devcontainer-features/flyway:latest": {}
-
   }
 }
