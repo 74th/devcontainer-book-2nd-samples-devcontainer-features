@@ -12,9 +12,9 @@
 
 ## LICENSE
 
-CC-0
+MIT License
 
-再掲する際は本書を一緒に紹介していただけると嬉しいです！
+https://github.com/devcontainers/feature-starter
 
 ## 実装内容を示した調査メモ
 
