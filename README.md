@@ -1,134 +1,21 @@
-# Dev Container Feature自作のテスト
+# 同人誌『DevContainer実践ガイド』サンプルコード - DevContainer Feature
 
-以下のテンプレートを使用
+<img src="./material/ebook.png" alt="DevContainer実践ガイド表紙" width="600"/>
 
-https://github.com/devcontainers/feature-starter
+このリポジトリは技術書典19にては [@74th](https://github.com/74th) が頒布した同人誌『DevContainer実践ガイド』のサンプルコードを収録しています。
 
-## flyway-8.1.0 を作ってみた
+販売先: Booth https://74th.booth.pm/items/7605652
 
-### テンプレートからの変更
+## このコードについて
 
-- src/color, test/color を削除
-- src/hello, test/hello を hello -> flyway-8.1.0名前にリネーム
-- .github/workflows/test.yaml にfeaturesの記載があるので、colorを削除、hello -> flyway-8.1.0 に変更
+第5章『Dev Container Features』の、第5.4節の『Featureを自作する』のサンプルコードです。
 
-### GitHub Actionsで動かなかったやつ
+## LICENSE
 
-.github/workflows/release.yaml の変更点PR作るやつが動かない。
+CC-0
 
-リポジトリの Settings -> Actions -> General -> Workflow permissions で、
-Allow GitHub Actions to create and approve pull requests にチェック。
+再掲する際は本書を一緒に紹介していただけると嬉しいです！
 
-.github/workflows/release.yaml を以下の記述に変えた。
+## 実装内容を示した調査メモ
 
-```
-git rebase origin/"$branch" || git merge origin/"$branch"
-```
-
-↓
-
-```
-if git ls-remote --exit-code --heads origin "$branch"; then
-    git fetch origin "$branch"
-    git rebase origin/"$branch" || git merge origin/"$branch"
-fi
-```
-
-### devcontainer-feature.json の記述
-
-name, idを記述する。versionは、GitHub Packages上必ずバージョンを変えないといけ内っぽく、0.0.1 と一旦しておく。
-
-```json
-{
-  "name": "flyway-8.1.0",
-  "id": "flyway-8.1.0",
-  "version": "0.0.1",
-  "description": "A flyway feature",
-  "options": {},
-  "containerEnv": {
-    "PATH": "/flyway:${PATH}"
-  },
-  "dependsOn": {
-    "ghcr.io/devcontainers/features/java:1": {}
-  },
-  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
-}
-```
-
-- javaなど他のfeaturesに依存する場合は、dependsOnに記述する
-- 環境変数の設定は devcontainer-feature.json の `containerEnv` に追加する
-
-### テストの作成
-
-test/flyway-8.1.0に test.sh, <シナリオ名>.sh, duplicate.sh を作成
-
-一旦全部同じ内容でよさそう。
-
-scenarios.json は以下のように記述。
-
-```json
-{
-  "ubuntu": {
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-      "flyway-8.1.0": {}
-    }
-  }
-}
-```
-
-scenarios.jsonとubuntu.shを削除すれば、追加シナリオなしでテストが動いてくれてる。
-
-### テストの実行
-
-テストは以下のコマンドで実施
-
-```
-devcontainer features test --features flyway-8.1.0
-```
-
-### 重複インストールへの対応
-
-duplicate.sh は、重複インストールをテストするのに使われる。
-
-install.sh に重複を入れる
-
-```bash
-if [ -d "/flyway" ]; then
-  echo "Flyway is already installed"
-  exit 0
-fi
-```
-
-### サブディレクトリ
-
-./features にすべてを格納したい。
-
-コマンドは以下で実行できる。
-
-```
-devcontainer features test --features flyway-8.1.0 -p ./features/
-```
-
-.github/workflows/test.yaml の devcontainer testコマンドに `-p ./features/` を追加する。
-
-.github/workflows/{validate,release}.yaml の devcontainers/action@v1 の `base-path-to-features` に `./features/src` を指定する。
-
-### 利用するときには
-
-[features/src/flyway-8.1.0/README.md](features/src/flyway-8.1.0/README.md)の通り、以下のようにfeaturesを指定する
-
-```
-"features": {
-    "ghcr.io/74th/test-devcontainer-feature-2/flyway-8.1.0:0": {}
-}
-```
-
-利用する前に、dockerからghcr.ioを使えるように以下のコマンドでログインしておく必要がある。
-
-```bash
-gh auth login
-docker login ghcr.io -u <ユーザ名> -p $(gh auth token)
-```
-
-[./test-workspace/flyway-8.1.0/](./test-workspace/flyway-8.1.0/)にワークスペースを作ったので、そちら参照。
+[./MEMO.md](./MEMO.md)
